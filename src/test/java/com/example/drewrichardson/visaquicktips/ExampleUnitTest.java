@@ -1,4 +1,4 @@
-package com.example.drewrichardson.visaquicktips;
+package com.example.drewrichardson.quicktips;
 
 import org.junit.Test;
 

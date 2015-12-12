@@ -1,4 +1,4 @@
-package com.example.drewrichardson.visaquicktips;
+package com.visa.dogdays.quicktips;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
