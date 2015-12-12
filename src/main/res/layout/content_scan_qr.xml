@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.drewrichardson.visaquicktips.ScanQRActivity"
+    tools:context="com.visa.dogdays.quicktips.ScanQRActivity"
     tools:showIn="@layout/activity_scan_qr"
     android:background="#1a1e5a">
 

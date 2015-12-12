@@ -1,4 +1,4 @@
-package com.example.drewrichardson.visaquicktips;
+package com.example.drewrichardson.quicktips;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
