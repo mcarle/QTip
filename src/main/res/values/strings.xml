@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Visa Quick Tips</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_populate_qr">PopulateQRActivity</string>
+    <string name="title_activity_scan_qr">ScanQRActivity</string>
+    <string name="title_activity_send_funds">SendFundsActivity</string>
+</resources>
