@@ -1,4 +1,4 @@
-package com.example.drewrichardson.visaquicktips;
+package com.visa.dogdays.quicktips;
 
 import android.app.Activity;
 import android.nfc.Tag;
