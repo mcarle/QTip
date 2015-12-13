@@ -7,4 +7,5 @@
     <string name="title_activity_populate_qr">PopulateQRActivity</string>
     <string name="title_activity_scan_qr">ScanQRActivity</string>
     <string name="title_activity_send_funds">SendFundsActivity</string>
+    <string name="title_activity_qrinfo">QRInfoActivity</string>
 </resources>

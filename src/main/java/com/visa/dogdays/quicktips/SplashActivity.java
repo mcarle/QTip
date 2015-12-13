@@ -21,11 +21,8 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        ReplaceFont.replaceDefaultFont(this, "DEFAULT", "MYRIADPRO-REGULAR.ttf");
 
-//Set typeface to Myriad
-        Typeface myTypeface = Typeface.createFromAsset(getAssets(), "MYRIADPRO-REGULAR.ttf");
-        TextView myTextview = (TextView)findViewById(R.id.textViewSplash);
-        myTextview.setTypeface(myTypeface);
     }
 
 
