@@ -1,34 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="com.visa.dogdays.quicktips.SendFundsActivity">
-
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_send_funds" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+    android:background="#1a1e5a">
+    <!-- TITLE LABEL -->
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Send Funds Details"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15px"
+        android:textStyle="bold"
+        android:textColor="#ffffff" />
 
-</android.support.design.widget.CoordinatorLayout>
+    <!-- USERS NAME -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fundSenderName"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:hint="Your name"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        />
+
+    <!-- EMAIL ADDRESS -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/senderEmailAddr"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:hint="Emaill Address"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        />
+
+    <!-- NOTES -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/senderNote"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:hint="Note"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        />
+
+    <!-- PAN -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/senderPAN"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:hint="Account Number"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        />
+
+    <!-- SEND TRANSACTION BUTTON -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="100dp"
+        android:text="Submit"
+        android:id="@+id/submitBtn" />
+
+</LinearLayout>

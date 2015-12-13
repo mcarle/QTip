@@ -23,6 +23,9 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        // check if we we're opened by QR URL
+
+
         //Set typeface to Myriad for visa logo
         Typeface myTypeface = Typeface.createFromAsset(getAssets(), "MYRIADPRO-REGULAR.ttf");
         TextView myTextview = (TextView)findViewById(R.id.textViewSplash);
@@ -32,8 +35,11 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                /*
                 // show splash screen on a timer, then transition to main screen
                 Intent i = new Intent(SplashActivity.this, MenuActivity.class);
+                */
+                Intent i = new Intent(SplashActivity.this, SendFundsActivity.class);
                 startActivity(i);
 
                 // close this activity
