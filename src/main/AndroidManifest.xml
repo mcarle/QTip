@@ -11,7 +11,7 @@
         android:persistent="true">
 
         <activity
-            android:name="com.visa.dogdays.quicktips.SplashActivity"
+            android:name=".SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme">
@@ -24,20 +24,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.visa.dogdays.quicktips.MenuActivity"
+            android:name=".MenuActivity"
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.visa.dogdays.quicktips.PopulateQRActivity"
+            android:name=".PopulateQRActivity"
             android:label="@string/title_activity_populate_qr"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.visa.dogdays.quicktips.ScanQRActivity"
+            android:name=".ScanQRActivity"
             android:label="@string/title_activity_scan_qr"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.visa.dogdays.quicktips.SendFundsActivity"
+            android:name=".SendFundsActivity"
             android:label="@string/title_activity_send_funds"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".QRInfoActivity"
+            android:label="@string/title_activity_qrinfo"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -6,6 +6,9 @@
     <string name="title_activity_populate_qr">PopulateQRActivity</string>
     <string name="title_activity_scan_qr">ScanQRActivity</string>
     <string name="title_activity_send_funds">SendFundsActivity</string>
+
+    <string name="title_activity_qrinfo">QRInfoActivity</string>
+=======
     <string name="action_settings">Settings</string>
     <string name="hello_button_value">Please enter your name</string>
     <string name="text_display">Welcome to QuickTips</string>
@@ -21,4 +24,5 @@
     <string name="amount1_value">$3</string>
     <string name="amount2_value">$5</string>
     <string name="amount3_value">$10</string>
+>>>>>>> f104e50e3ba4b08ccff0317ddd2042aa81d1b3d5
 </resources>

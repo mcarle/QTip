@@ -13,6 +13,8 @@ public class SendFundsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_funds);
+        ReplaceFont.replaceDefaultFont(this, "DEFAULT", "MYRIADPRO-REGULAR.ttf");
+
 
         // register submit button
         Button submitBtn = (Button) findViewById(R.id.submitBtn);
