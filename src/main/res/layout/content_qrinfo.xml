@@ -11,7 +11,8 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.visa.dogdays.quicktips.QRInfoActivity"
     tools:showIn="@layout/activity_qrinfo"
-    android:background="#1a1e5a">
+    android:background="#1a1e5a"
+    android:nestedScrollingEnabled="false">
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,13 +34,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/txtInfoTitle"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="false">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="First Name"
             android:ems="10"
             android:id="@+id/txtFirstNameQR"
             android:editable="true"
@@ -49,16 +52,15 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignRight="@+id/txtInfoTitle"
-            android:layout_alignEnd="@+id/txtInfoTitle" />
+            android:layout_alignEnd="@+id/txtInfoTitle"
+            android:hint="First Name" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Last Name"
             android:ems="10"
             android:id="@+id/txtLastNameQR"
-            android:editable="false"
             android:background="#ffffff"
             android:padding="4dp"
             android:layout_below="@+id/txtFirstNameQR"
@@ -66,7 +68,8 @@
             android:layout_alignParentStart="true"
             android:layout_alignRight="@+id/txtFirstNameQR"
             android:layout_alignEnd="@+id/txtFirstNameQR"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:hint="Last Name" />
 
         <EditText
             android:layout_width="match_parent"
@@ -82,9 +85,7 @@
             android:layout_marginTop="10dp"
             android:layout_alignRight="@+id/txtLastNameQR"
             android:layout_alignEnd="@+id/txtLastNameQR"
-            android:text="Address"
-            android:enabled="false"
-            android:editable="true" />
+            android:hint="Address" />
 
         <EditText
             android:layout_width="match_parent"
@@ -98,9 +99,7 @@
             android:background="#ffffff"
             android:layout_marginTop="10dp"
             android:padding="4dp"
-            android:text="City"
-            android:enabled="false"
-            android:editable="true" />
+            android:hint="City" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -114,17 +113,15 @@
                 android:ems="10"
                 android:id="@+id/txtStateQR"
                 android:inputType="textCapCharacters"
-                android:text="State"
                 android:background="#ffffff"
-                android:editable="true"
                 android:padding="4dp"
-                android:enabled="false"
                 android:layout_alignTop="@+id/txtZipQR"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:layout_marginRight="5dp" />
+                android:layout_marginRight="5dp"
+                android:hint="State" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -132,17 +129,15 @@
                 android:ems="10"
                 android:id="@+id/txtZipQR"
                 android:inputType="number"
-                android:editable="true"
                 android:background="#ffffff"
-                android:text="Zip Code"
-                android:enabled="false"
                 android:layout_below="@+id/txtCityQR"
                 android:layout_toRightOf="@+id/txtStateQR"
                 android:layout_toEndOf="@+id/txtStateQR"
                 android:layout_marginTop="10dp"
                 android:padding="4dp"
                 android:layout_weight="1"
-                android:layout_marginLeft="5dp" />
+                android:layout_marginLeft="5dp"
+                android:hint="Zip Code" />
         </LinearLayout>
 
         <EditText
@@ -159,7 +154,7 @@
             android:padding="4dp"
             android:layout_marginTop="10dp"
             android:background="#ffffff"
-            android:text="Card Number" />
+            android:hint="Card Number" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -177,11 +172,11 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:background="#ffffff"
-                android:text="MM/YY"
                 android:layout_marginTop="10dp"
                 android:padding="4dp"
                 android:layout_marginRight="5dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:hint="MM/YY" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -194,10 +189,10 @@
                 android:layout_alignTop="@+id/txtExpDateQR"
                 android:layout_alignLeft="@+id/txtZipQR"
                 android:layout_alignStart="@+id/txtZipQR"
-                android:text="CVV2"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:hint="CVV2" />
 
         </LinearLayout>
 
@@ -207,7 +202,6 @@
             android:inputType="textEmailAddress"
             android:ems="10"
             android:id="@+id/txtEmailQR"
-            android:text="Email (optional)"
             android:background="#ffffff"
             android:padding="4dp"
             android:layout_below="@+id/txtExpDateQR"
@@ -215,16 +209,14 @@
             android:layout_alignParentStart="true"
             android:layout_marginTop="10dp"
             android:layout_alignRight="@+id/txtCVV2QR"
-            android:layout_alignEnd="@+id/txtCVV2QR" />
+            android:layout_alignEnd="@+id/txtCVV2QR"
+            android:hint="Email (optional)" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="URL (optional)"
             android:ems="10"
             android:id="@+id/txtUrlQR"
-            android:editable="true"
             android:background="#ffffff"
             android:padding="4dp"
             android:layout_below="@+id/txtEmailQR"
@@ -232,7 +224,9 @@
             android:layout_alignRight="@+id/txtEmailQR"
             android:layout_alignEnd="@+id/txtEmailQR"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:hint="URL (optional)"
+            android:inputType="textUri" />
 
         <Button
             android:layout_width="wrap_content"
@@ -245,7 +239,8 @@
             android:layout_alignRight="@+id/txtUrlQR"
             android:layout_alignEnd="@+id/txtUrlQR"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+            android:onClick="sendMessageGen"/>
 
     </LinearLayout>
 

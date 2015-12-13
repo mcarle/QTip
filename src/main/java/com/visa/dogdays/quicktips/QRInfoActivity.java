@@ -1,5 +1,6 @@
 package com.visa.dogdays.quicktips;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -27,6 +28,11 @@ public class QRInfoActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    public void sendMessageGen(View view) {
+        Intent i = new Intent(QRInfoActivity.this, PopulateQRActivity.class);
+        startActivity(i);
     }
 
 
