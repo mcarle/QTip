@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.util.Log;
 
+import com.visa.dogdays.quicktips.visaservice.SendFundsService;
+
 public class SendFundsActivity extends Activity {
 
     @Override
@@ -39,6 +41,8 @@ public class SendFundsActivity extends Activity {
         Log.v("submit-funds", senderNote);
         Log.v("submit-funds", senderPAN);
 
+        SendFundsService vdp = new SendFundsService(getApplicationContext());
+        vdp.execute();
 
     }
 
