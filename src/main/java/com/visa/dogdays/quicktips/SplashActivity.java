@@ -42,7 +42,6 @@ public class SplashActivity extends AppCompatActivity {
                 // show splash screen on a timer, then transition to main screen
                 Intent i = new Intent(SplashActivity.this, MenuActivity.class);
 
-                //Intent i = new Intent(SplashActivity.this, SendFundsActivity.class);
                 startActivity(i);
 
                 // close this activity

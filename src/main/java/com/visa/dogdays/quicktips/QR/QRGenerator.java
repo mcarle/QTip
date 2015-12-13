@@ -14,23 +14,6 @@ import android.widget.Toast;
 public class QRGenerator {
 
     private void generateQRCode_general(String data, ImageView img)throws WriterException {
-        com.google.zxing.Writer writer = new QRCodeWriter();
-        String finaldata = Uri.encode(data, "utf-8");
 
-        BitMatrix bm = writer.encode(finaldata, BarcodeFormat.QR_CODE,150, 150);
-        Bitmap ImageBitmap = Bitmap.createBitmap(150, 150,Config.ARGB_8888);
-
-        for (int i = 0; i < 150; i++) {//width
-            for (int j = 0; j < 150; j++) {//height
-                ImageBitmap.setPixel(i, j, bm.get(i, j) ? Color.BLACK: Color.WHITE);
-            }
-        }
-
-        if (ImageBitmap != null) {
-           // qrcode.setImageBitmap(ImageBitmap);
-        } else {
-            //Toast.makeText(getApplicationContext(), "Error generating QR!",
-                 //   Toast.LENGTH_SHORT).show();
-        }
     }
 }

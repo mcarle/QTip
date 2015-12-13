@@ -8,7 +8,11 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.EditText;
+import com.google.gson.Gson;
+
+import com.visa.dogdays.quicktips.QR.QRInfo;
 
 public class QRInfoActivity extends AppCompatActivity {
 
@@ -17,37 +21,37 @@ public class QRInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrinfo);
         ReplaceFont.replaceDefaultFont(this, "DEFAULT", "MYRIADPRO-REGULAR.ttf");
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-
-
-/*        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        // register submit button
+        Button getQRCodeBtn = (Button)findViewById(R.id.btnQRCode);
+        getQRCodeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                generateQRCode();
             }
-        }); */
+        });
     }
 
-    private String varFirstNameQR;
-    private String varLastNameQR;
-    private String varAddressQR;
-    private String varCityQR;
-    private String varStateQR;
-    private int varZipQR;
-    private int varPANQR;
-    private String varExpDateQR;
-    private int varCVV2QR;
-    private String varEmailQR;
-    private String varURLQR;
 
+    public void generateQRCode() {
+        // get ui form fields
+        QRInfo qrArgs = new QRInfo();
+        qrArgs.address = ((EditText)findViewById(R.id.txtAddressQR)).getText().toString();
+        qrArgs.city = ((EditText)findViewById(R.id.txtCityQR)).getText().toString();
+        qrArgs.cvv2 = ((EditText)findViewById(R.id.txtCVV2QR)).getText().toString();
+        qrArgs.email = ((EditText)findViewById(R.id.txtEmailQR)).getText().toString();
+        qrArgs.expDate = ((EditText)findViewById(R.id.txtExpDateQR)).getText().toString();
+        qrArgs.firstName = ((EditText)findViewById(R.id.txtFirstNameQR)).getText().toString();
+        qrArgs.lastName = ((EditText)findViewById(R.id.txtLastNameQR)).getText().toString();
+        qrArgs.pan = ((EditText)findViewById(R.id.txtPANQR)).getText().toString();
+        qrArgs.state = ((EditText)findViewById((R.id.txtStateQR))).getText().toString();
+        qrArgs.zip = ((EditText)findViewById(R.id.txtZipQR)).getText().toString();
 
-
-    public void sendMessageGen(View view) {
         Intent i = new Intent(QRInfoActivity.this, PopulateQRActivity.class);
+        // serialize qr args and pass to QR display activity
+        Gson gson = new Gson();
+        i.putExtra("QR_ARGS", gson.toJson(qrArgs));
+
         startActivity(i);
     }
 }
