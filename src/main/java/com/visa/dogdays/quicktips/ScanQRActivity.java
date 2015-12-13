@@ -1,30 +1,56 @@
 package com.visa.dogdays.quicktips;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.widget.Button;
 import android.view.View;
+import android.content.Intent;
+import android.util.Log;
+import android.view.Menu;
+import android.widget.Toast;
+
 
 public class ScanQRActivity extends AppCompatActivity {
+
+    private Button scan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_qr);
-        ReplaceFont.replaceDefaultFont(this, "DEFAULT", "MYRIADPRO-REGULAR.ttf");
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        scan= (Button)findViewById(R.id.qrScanner);
+
+        scan.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+                intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
+                startActivityForResult(intent, 0);
             }
         });
     }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK) {
+
+                String contents = intent.getStringExtra("SCAN_RESULT");
+                String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
+
+                // Handle successful scan
+                Intent i =  new Intent(ScanQRActivity.this, SendFundsActivity.class);
+                startActivity(i);
+                Toast.makeText(getApplicationContext(), contents, Toast.LENGTH_LONG);
+
+            } else if (resultCode == RESULT_CANCELED) {
+                // Handle cancel
+                Log.i("App","Scan unsuccessful");
+            }
+        }
+    }
+
 
 }

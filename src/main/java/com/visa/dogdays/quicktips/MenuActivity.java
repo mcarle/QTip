@@ -19,7 +19,7 @@ public class MenuActivity extends Activity {
 
     public void sendMessageMoney(View view)
     {
-        Intent i = new Intent(MenuActivity.this, SendFundsActivity.class);
+        Intent i = new Intent(MenuActivity.this, ScanQRActivity.class);
         startActivity(i);
     }
 
