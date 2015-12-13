@@ -1,30 +1,45 @@
 package com.visa.dogdays.quicktips;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.widget.Button;
 import android.view.View;
+import android.widget.EditText;
+import android.util.Log;
 
-public class SendFundsActivity extends AppCompatActivity {
+public class SendFundsActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_funds);
         ReplaceFont.replaceDefaultFont(this, "DEFAULT", "MYRIADPRO-REGULAR.ttf");
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+
+        // register submit button
+        Button submitBtn = (Button) findViewById(R.id.submitBtn);
+        submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v){
+                submitSendFunds();
             }
         });
+    }
+
+
+    public void submitSendFunds(){
+        // get text fields
+        String senderName = ((EditText)findViewById(R.id.fundSenderName)).getText().toString();
+        String senderEmailAddr = ((EditText)findViewById(R.id.senderEmailAddr)).getText().toString();
+        String senderNote = ((EditText)findViewById(R.id.senderNote)).getText().toString();
+        String senderPAN = ((EditText)findViewById(R.id.senderPAN)).getText().toString();
+
+        Log.v("submit-funds", senderName);
+        Log.v("submit-funds", senderEmailAddr);
+        Log.v("submit-funds", senderNote);
+        Log.v("submit-funds", senderPAN);
+
+
     }
 
 }

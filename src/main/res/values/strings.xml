@@ -1,11 +1,28 @@
 <resources>
     <string name="app_name">Visa Quick Tips</string>
-
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_activity_populate_qr">PopulateQRActivity</string>
     <string name="title_activity_scan_qr">ScanQRActivity</string>
     <string name="title_activity_send_funds">SendFundsActivity</string>
+
     <string name="title_activity_qrinfo">QRInfoActivity</string>
+=======
+    <string name="action_settings">Settings</string>
+    <string name="hello_button_value">Please enter your name</string>
+    <string name="text_display">Welcome to QuickTips</string>
+    <string name="text_enter_name">Please enter amount you want to send</string>
+    <string name="button_text_value">Submit</string>
+    <string name="ms_btn_text">Details</string>
+    <string name="email_data">email_data</string>
+    <string name="token_data">token_data</string>
+    <string name="fname_data">fname</string>
+    <string name="lname_data">lname</string>
+    <string name="url_data">url</string>
+    <string name="amount_value">$2</string>
+    <string name="amount1_value">$3</string>
+    <string name="amount2_value">$5</string>
+    <string name="amount3_value">$10</string>
+>>>>>>> f104e50e3ba4b08ccff0317ddd2042aa81d1b3d5
 </resources>
