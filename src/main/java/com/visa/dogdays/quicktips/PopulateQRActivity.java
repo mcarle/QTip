@@ -29,16 +29,18 @@ public class PopulateQRActivity extends AppCompatActivity {
         QRInfo qrArgs = new Gson().fromJson(qrArgsStr, QRInfo.class);
 
         // generate and display QRCode
+        Toast.makeText(getApplicationContext(), QRInfo.toQRURL(), Toast.LENGTH_LONG).show();
+        Log.v("QR URL::::", QRInfo.toQRURL());
         generateQRCode(QRInfo.toQRURL());
 
     }
 
     private void generateQRCode(String data){
         com.google.zxing.Writer writer = new QRCodeWriter();
-        String finaldata = Uri.encode(data, "utf-8");
+        //String finaldata = Uri.encode(data, "utf-8");
         BitMatrix bm;
         try {
-            bm = writer.encode(finaldata, BarcodeFormat.QR_CODE, 150, 150);
+            bm = writer.encode(data, BarcodeFormat.QR_CODE, 150, 150);
         }
         catch (WriterException wex){
             // TODO: Handle exception

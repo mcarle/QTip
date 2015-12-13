@@ -1,5 +1,7 @@
 package com.visa.dogdays.quicktips.QR;
 
+
+import android.net.Uri;
 /**
  * Created by mcarle on 12/12/15.
  */
@@ -17,6 +19,6 @@ public class QRInfo {
     public String url;
 
     public static String toQRURL(){
-        return "androidApp://com.visa.dogdays.quicktips?firstName=Drew&lastName=Rich&city=Denver";
+        return "example://gizmos";
     }
 }
