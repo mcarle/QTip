@@ -1,20 +1,21 @@
 package com.visa.dogdays.quicktips;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.RequiresPermission;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.graphics.Color;
 import android.widget.ImageView;
-import java.io.InputStream;
+import com.google.gson.Gson;
+import com.google.zxing.WriterException;
+import com.google.zxing.qrcode.QRCodeWriter;
+import android.net.Uri;
+import com.visa.dogdays.quicktips.QR.QRInfo;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.BarcodeFormat;
+import android.graphics.Bitmap.Config;
+import android.util.Log;
+import android.widget.Toast;
 
 public class PopulateQRActivity extends AppCompatActivity {
 
@@ -22,57 +23,48 @@ public class PopulateQRActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_populate_qr);
-        ImageView bindImage = (ImageView) findViewById(R.id.imageView);
-        String pathToFile = "http://inducesmile.com/wp-content/uploads/2015/03/mobile.jpg";
-        DownloadImageWithURLTask downloadTask = new DownloadImageWithURLTask(bindImage);
-        downloadTask.execute(pathToFile);
+
+        // get QR args from args
+        String qrArgsStr = getIntent().getStringExtra("QR_ARGS");
+        QRInfo qrArgs = new Gson().fromJson(qrArgsStr, QRInfo.class);
+
+        // generate and display QRCode
+        generateQRCode(QRInfo.toQRURL());
+
     }
 
-    /*
-        @Override
-        public boolean onCreateOptionsMenu(Menu menu) {
-    // Inflate the menu; this adds items to the action bar if it is present.
-            getMenuInflater().inflate(R.menu.menu_main, menu);
-            return true;
+    private void generateQRCode(String data){
+        com.google.zxing.Writer writer = new QRCodeWriter();
+        String finaldata = Uri.encode(data, "utf-8");
+        BitMatrix bm;
+        try {
+            bm = writer.encode(finaldata, BarcodeFormat.QR_CODE, 150, 150);
         }
+        catch (WriterException wex){
+            // TODO: Handle exception
+            Toast.makeText(getApplicationContext(), "Error generating QR code!",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Bitmap imageBitmap = Bitmap.createBitmap(150, 150, Config.ARGB_8888);
 
-        @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
-    // Handle action bar item clicks here. The action bar will
-    // automatically handle clicks on the Home/Up button, so long
-    // as you specify a parent activity in AndroidManifest.xml.
-            int id = item.getItemId();
-    //noinspection SimplifiableIfStatement
-            if (id == R.id.) {
-                return true;
+        for (int i = 0; i < 150; i++) {//width
+            for (int j = 0; j < 150; j++) {//height
+                imageBitmap.setPixel(i, j, bm.get(i, j) ? Color.BLACK: Color.WHITE);
             }
-
-            return super.onOptionsItemSelected(item);
-
-        }  */
-    private class DownloadImageWithURLTask extends AsyncTask<String, Void, Bitmap> {
-        ImageView bmImage;
-
-        public DownloadImageWithURLTask(ImageView bmImage) {
-            this.bmImage = bmImage;
         }
 
-        protected Bitmap doInBackground(String... urls) {
-            String pathToFile = urls[0];
-            Bitmap bitmap = null;
-            try {
-                InputStream in = new java.net.URL(pathToFile).openStream();
-                bitmap = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return bitmap;
-        }
+        if (imageBitmap != null) {
+            ImageView qrCodeImg = (ImageView) findViewById(R.id.qrCodeImg);
+            qrCodeImg.setImageBitmap(imageBitmap);
+            Toast.makeText(getApplicationContext(), "Created bitmap QR!",
+                    Toast.LENGTH_SHORT).show();
 
-        protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
+        } else {
+              Toast.makeText(getApplicationContext(), "Error generating QR!",
+              Toast.LENGTH_SHORT).show();
         }
     }
+
 }
 

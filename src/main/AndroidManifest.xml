@@ -5,7 +5,12 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
 
-
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW"></action>
+        <category android:name="android.intent.category.DEFAULT"></category>
+        <category android:name="android.intent.category.BROWSABLE"></category>
+        <data android:host="com.visa.dogdays.quicktips" android:scheme="androidApp"></data>
+    </intent-filter>
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
