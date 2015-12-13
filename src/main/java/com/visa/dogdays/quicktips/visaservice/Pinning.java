@@ -1,8 +1,5 @@
 package com.visa.dogdays.quicktips.visaservice;
 
-/**
- * Created by vedagarw on 10/27/15.
- */
 
 import android.content.Context;
 
