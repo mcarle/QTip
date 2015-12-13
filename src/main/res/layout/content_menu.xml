@@ -32,7 +32,8 @@
             android:text="Send Money"
             android:id="@+id/btnSendMoney"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp" />
+            android:layout_marginTop="50dp"
+            android:onClick="sendMessageMoney"/>
 
         <Button
             android:layout_width="190dp"
@@ -40,6 +41,7 @@
             android:text="Create Code"
             android:id="@+id/btnCreateCode"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="25dp" />
+            android:layout_marginTop="25dp"
+            android:onClick="sendMessageCode"/>
     </LinearLayout>
 </RelativeLayout>

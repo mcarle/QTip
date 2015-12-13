@@ -11,7 +11,7 @@ import android.graphics.Bitmap.Config;
 import android.graphics.Color;
 import android.widget.Toast;
 
-public class QRCode {
+public class QRGenerator {
 
     private void generateQRCode_general(String data, ImageView img)throws WriterException {
         com.google.zxing.Writer writer = new QRCodeWriter();
@@ -27,10 +27,10 @@ public class QRCode {
         }
 
         if (ImageBitmap != null) {
-            qrcode.setImageBitmap(ImageBitmap);
+           // qrcode.setImageBitmap(ImageBitmap);
         } else {
-            Toast.makeText(getApplicationContext(), "Error generating QR!",
-                    Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "Error generating QR!",
+                 //   Toast.LENGTH_SHORT).show();
         }
     }
 }
